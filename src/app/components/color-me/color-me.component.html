@@ -1,0 +1,5 @@
+<div class="color-me">
+  <h4>Type color below.</h4>
+  <input type="text" #colorInput (keyup)="null" [placeholder]="color" [value]="color">
+  <div class="color-panel" [style.background]="colorInput.value"></div>
+</div>

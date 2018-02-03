@@ -1,0 +1,8 @@
+<div class="calculator-container">
+  <h2>Redux Counter</h2>
+  <p>{{total$ | async}} : {{input}} : {{numberInput.value}}</p>
+  <button (click)="subValue(numberInput.value)">-</button>
+  <input type="number" #numberInput (keyup)="pushValue(numberInput.value)" >
+  <button (click)="addValue(numberInput.value)">+</button>
+</div>
+  
