@@ -1,7 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { NgRedux, select } from '@angular-redux/store';
-import { IAppState } from '../../../store';
-import { CalculatorReduxActions } from '../../redux/calculator-redux.actions';
+import { AppState } from '../../../store';
+import { CalculatorReduxActions } from '../../reducers/calculatorReducer';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
@@ -12,11 +12,11 @@ import { Observable } from 'rxjs/Observable';
 
 export class CalculatorReduxComponent implements OnInit {
   // readonly total$: Observable<number>; // Defining total from state observable as readonly
-  @select() readonly total$: Observable<number>; // Defining total, pulls state slice using var name
+  @select(['calculator', 'total']) readonly total$: Observable<number>; // Defining total, pulls state slice using var name
   input: number = 0;
   // subscription;
   constructor(
-    private ngRedux: NgRedux<IAppState>,
+    private ngRedux: NgRedux<AppState>,
     private actions: CalculatorReduxActions) { 
       // this.total$ = ngRedux.select<number>('total'); // select slice of state to subscribe to
       // this.subscription = ngRedux.select<number>('total')
